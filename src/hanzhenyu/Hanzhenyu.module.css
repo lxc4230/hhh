@@ -1,0 +1,174 @@
+.app {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    min-height: 100vh;
+    color: #333;
+  }
+  
+  .header {
+    background-color: #d42020;
+    color: white;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .title {
+    font-size: 2.5rem;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  .subtitle {
+    font-size: 1.2rem;
+    margin: 0.5rem 0 0;
+    opacity: 0.9;
+  }
+  
+  .container {
+    display: flex;
+    max-width: 1400px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    gap: 2rem;
+  }
+  
+  .crewGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+    flex: 1;
+  }
+  
+  .crewCard {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    text-align: center;
+    padding-bottom: 1rem;
+  }
+  
+  .crewCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .crewCard.selected {
+    border: 3px solid #d42020;
+    box-shadow: 0 0 0 2px white, 0 0 0 5px #d42020;
+  }
+  
+  .wantedPoster {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .crewName {
+    margin: 0.5rem 0;
+    font-size: 1.2rem;
+    color: #d42020;
+  }
+  
+  .crewPosition {
+    margin: 0.3rem 0;
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  .crewBounty {
+    margin: 0.3rem 0;
+    font-weight: bold;
+    color: #b8860b;
+  }
+  
+  .detailsPanel {
+    flex: 1;
+    background: white;
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-height: 600px;
+  }
+  
+  .memberDetails {
+    animation: fadeIn 0.5s ease;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .memberTitle {
+    color: #d42020;
+    font-size: 2rem;
+    margin-top: 0;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 0.5rem;
+  }
+  
+  .memberNickname {
+    font-style: italic;
+    color: #666;
+    margin-top: -0.5rem;
+  }
+  
+  .infoGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+  
+  .infoColumn p {
+    margin: 0.5rem 0;
+  }
+  
+  .sectionTitle {
+    color: #d42020;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.3rem;
+    margin-top: 1.5rem;
+  }
+  
+  .backgroundText {
+    line-height: 1.6;
+    text-align: justify;
+  }
+  
+  .emptyState {
+    text-align: center;
+    color: #666;
+    padding: 2rem;
+    font-size: 1.1rem;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 1024px) {
+    .container {
+      flex-direction: column;
+    }
+    
+    .crewGrid {
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .infoGrid {
+      grid-template-columns: 1fr;
+    }
+    
+    .title {
+      font-size: 2rem;
+    }
+    
+    .header {
+      padding: 1.5rem;
+    }
+  }
