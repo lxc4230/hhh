@@ -1,174 +1,195 @@
 .app {
-    font-family: 'Arial', sans-serif;
-    background-color: #f5f5f5;
-    min-height: 100vh;
-    color: #333;
-  }
-  
-  .header {
-    background-color: #d42020;
-    color: white;
-    padding: 2rem;
-    text-align: center;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  }
-  
-  .title {
-    font-size: 2.5rem;
-    margin: 0;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  }
-  
-  .subtitle {
-    font-size: 1.2rem;
-    margin: 0.5rem 0 0;
-    opacity: 0.9;
-  }
-  
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  font-family: 'Arial', sans-serif;
+}
+
+.header {
+  text-align: center;
+  padding: 2rem 0;
+  background-color: #d42020;
+  color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.title {
+  font-size: 2.5rem;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  margin: 0.5rem 0 0;
+  opacity: 0.9;
+}
+
+.container {
+  display: flex;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.crewGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+  flex: 1;
+  margin-right: 1.5rem;
+}
+
+.crewCard {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.crewCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.crewCard.selected {
+  border: 3px solid #d42020;
+}
+
+.wantedPoster {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-bottom: 1px solid #eee;
+}
+
+.crewName {
+  margin: 0.8rem 1rem 0;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.crewPosition {
+  margin: 0.3rem 1rem;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.crewBounty {
+  margin: 0.3rem 1rem 1rem;
+  color: #d42020;
+  font-weight: bold;
+}
+
+.detailsPanel {
+  flex: 0 0 400px;
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-height: 80vh;
+  overflow-y: auto;
+  position: sticky;
+  top: 1rem;
+}
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: #666;
+  text-align: center;
+  padding: 2rem;
+}
+
+.emptyState p {
+  margin: 0.5rem 0;
+}
+
+.memberDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.memberTitle {
+  color: #d42020;
+  margin: 0 0 0.5rem;
+  font-size: 1.8rem;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+.memberNickname {
+  font-style: italic;
+  color: #666;
+  margin: 0 0 1rem;
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.infoColumn p {
+  margin: 0.5rem 0;
+}
+
+.backgroundSection {
+  margin-top: 1rem;
+}
+
+.sectionTitle {
+  color: #d42020;
+  margin: 1rem 0 0.5rem;
+  font-size: 1.2rem;
+}
+
+.backgroundText {
+  line-height: 1.6;
+  color: #444;
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
   .container {
-    display: flex;
-    max-width: 1400px;
-    margin: 2rem auto;
-    padding: 0 1rem;
-    gap: 2rem;
+    flex-direction: column;
   }
   
   .crewGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1.5rem;
-    flex: 1;
-  }
-  
-  .crewCard {
-    background: white;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-    text-align: center;
-    padding-bottom: 1rem;
-  }
-  
-  .crewCard:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-  }
-  
-  .crewCard.selected {
-    border: 3px solid #d42020;
-    box-shadow: 0 0 0 2px white, 0 0 0 5px #d42020;
-  }
-  
-  .wantedPoster {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-bottom: 1px solid #eee;
-  }
-  
-  .crewName {
-    margin: 0.5rem 0;
-    font-size: 1.2rem;
-    color: #d42020;
-  }
-  
-  .crewPosition {
-    margin: 0.3rem 0;
-    font-size: 0.9rem;
-    color: #666;
-  }
-  
-  .crewBounty {
-    margin: 0.3rem 0;
-    font-weight: bold;
-    color: #b8860b;
+    margin-right: 0;
+    margin-bottom: 2rem;
   }
   
   .detailsPanel {
     flex: 1;
-    background: white;
-    border-radius: 8px;
-    padding: 2rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    min-height: 600px;
+    width: 100%;
+    position: static;
+    max-height: none;
   }
-  
-  .memberDetails {
-    animation: fadeIn 0.5s ease;
-  }
-  
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  
-  .memberTitle {
-    color: #d42020;
-    font-size: 2rem;
-    margin-top: 0;
-    border-bottom: 2px solid #eee;
-    padding-bottom: 0.5rem;
-  }
-  
-  .memberNickname {
-    font-style: italic;
-    color: #666;
-    margin-top: -0.5rem;
+}
+
+@media (max-width: 600px) {
+  .crewGrid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
   
   .infoGrid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    margin: 1.5rem 0;
+    grid-template-columns: 1fr;
   }
   
-  .infoColumn p {
-    margin: 0.5rem 0;
+  .title {
+    font-size: 2rem;
   }
   
-  .sectionTitle {
-    color: #d42020;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 0.3rem;
-    margin-top: 1.5rem;
+  .subtitle {
+    font-size: 1rem;
   }
-  
-  .backgroundText {
-    line-height: 1.6;
-    text-align: justify;
-  }
-  
-  .emptyState {
-    text-align: center;
-    color: #666;
-    padding: 2rem;
-    font-size: 1.1rem;
-  }
-  
-  /* Responsive adjustments */
-  @media (max-width: 1024px) {
-    .container {
-      flex-direction: column;
-    }
-    
-    .crewGrid {
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    }
-  }
-  
-  @media (max-width: 600px) {
-    .infoGrid {
-      grid-template-columns: 1fr;
-    }
-    
-    .title {
-      font-size: 2rem;
-    }
-    
-    .header {
-      padding: 1.5rem;
-    }
-  }
+}
